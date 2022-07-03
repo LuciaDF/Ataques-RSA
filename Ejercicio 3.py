@@ -42,7 +42,7 @@ def FirmaDigital(M):
     mcif = cifrarm(m,d,n)   
     print("Mensaje cifrado: ")
     print(''.join(map(lambda x: str(x), mcif)))
-    #print(encrypted_msg)
+
     
     print("")
     print("---------VERIFICACION---------")
