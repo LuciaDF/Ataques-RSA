@@ -1,37 +1,27 @@
-
-import resource
-import random
-import math 
-
-def fact(n):
-    p1 = math.floor(math.sqrt(n))
-    a = n % p1
-    while(a != 0):
-        p1 -= 1
-        if p1==0:
-            print("bajo hasta cero")
-            break
-
-        a = n % p1
-    return p1
-    
+import RSA
+import resource 
 
 if __name__ == '__main__':
-    
     e = 65537
     n = 999630013489
-    c =  747120213790
+    c = 747120213790
+
+    # halar p y q
+    p = resource.fact(n)
+    q = int(n / p)
     
-    p=fact(n)
-    q=int(n/p)
-    n1=int(p*q)
-    phin=int((p-1)*(q-1))
-    mcd,d,y=resource.euclides_ext(e,phin)
-    d=d%phin
-    print("d: ",d)
-    m1=resource.exp_Mod(c,d,n)
-    print("c^d mod n == m1: ",m1)
-    c1=resource.exp_Mod(m1,e,n)
-    print("m1 ^ e mod n == c1: ",c1)
-    print("c: ",c)
-    print("EXITO!")
+    # hallar fi(n)
+    phi = (p-1)*(q-1)
+
+    # hallar d
+    mcd, d1, y = resource.euclides_ext(e, phi)
+    d = d1 % phi
+    print("d = ", d)
+
+    # ya esta
+    m = RSA.cifrar(c,d,n)
+    c1 = RSA.cifrar(m,e,n)
+    print("m = ", m)
+    print("c = " ,c1)
+
+
