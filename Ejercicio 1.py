@@ -6,7 +6,7 @@ if __name__ == '__main__':
     n = 999630013489
     c = 747120213790
 
-    # halar p y q
+    # hallar p y q
     p = resource.fact(n)
     q = int(n / p)
     
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     d = d1 % phi
     print("d = ", d)
 
-    # ya esta
+    # Verificacion
     m = RSA.cifrar(c,d,n)
     c1 = RSA.cifrar(m,e,n)
     print("m = ", m)
