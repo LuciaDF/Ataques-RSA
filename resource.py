@@ -82,3 +82,11 @@ def gen_e(a):
 def gen_d(a,b):
     l, m ,n= euclides_ext(a,b)
     return m % b
+
+def fact(n):
+    p1 = math.floor(math.sqrt(n))
+    a = n % p1
+    while(a != 0):
+        p1 -= 1
+        a = n % p1
+    return p1
